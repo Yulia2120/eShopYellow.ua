@@ -50,6 +50,8 @@
             this.butSave = new System.Windows.Forms.Button();
             this.butFind = new System.Windows.Forms.Button();
             this.txtBoxFind = new System.Windows.Forms.TextBox();
+            this.ImageUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbGrn = new System.Windows.Forms.Label();
             this.productInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,13 +81,14 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(792, 515);
+            this.tabPage1.Size = new System.Drawing.Size(936, 535);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lbGrn);
             this.tabPage2.Controls.Add(this.txtBoxFind);
             this.tabPage2.Controls.Add(this.butFind);
             this.tabPage2.Controls.Add(this.butSave);
@@ -120,7 +123,8 @@
             this.idDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn});
+            this.descriptionDataGridViewTextBoxColumn,
+            this.ImageUrl});
             this.dataGridView.DataSource = this.productInfoBindingSource;
             this.dataGridView.Location = new System.Drawing.Point(24, 57);
             this.dataGridView.Name = "dataGridView";
@@ -131,9 +135,11 @@
             // 
             // pBoxImage
             // 
+            this.pBoxImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pBoxImage.Location = new System.Drawing.Point(540, 29);
             this.pBoxImage.Name = "pBoxImage";
             this.pBoxImage.Size = new System.Drawing.Size(125, 190);
+            this.pBoxImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pBoxImage.TabIndex = 1;
             this.pBoxImage.TabStop = false;
             // 
@@ -219,12 +225,13 @@
             // 
             // butAdd
             // 
+            this.butAdd.BackColor = System.Drawing.Color.OrangeRed;
             this.butAdd.Location = new System.Drawing.Point(24, 492);
             this.butAdd.Name = "butAdd";
             this.butAdd.Size = new System.Drawing.Size(75, 23);
             this.butAdd.TabIndex = 11;
             this.butAdd.Text = "Add";
-            this.butAdd.UseVisualStyleBackColor = true;
+            this.butAdd.UseVisualStyleBackColor = false;
             this.butAdd.Click += new System.EventHandler(this.butAdd_Click);
             // 
             // butEdit
@@ -282,6 +289,21 @@
             this.txtBoxFind.Name = "txtBoxFind";
             this.txtBoxFind.Size = new System.Drawing.Size(381, 20);
             this.txtBoxFind.TabIndex = 17;
+            // 
+            // ImageUrl
+            // 
+            this.ImageUrl.DataPropertyName = "ImageUrl";
+            this.ImageUrl.HeaderText = "ImageUrl";
+            this.ImageUrl.Name = "ImageUrl";
+            // 
+            // lbGrn
+            // 
+            this.lbGrn.AutoSize = true;
+            this.lbGrn.Location = new System.Drawing.Point(876, 177);
+            this.lbGrn.Name = "lbGrn";
+            this.lbGrn.Size = new System.Drawing.Size(22, 13);
+            this.lbGrn.TabIndex = 18;
+            this.lbGrn.Text = "grn";
             // 
             // productInfoBindingSource
             // 
@@ -361,6 +383,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ImageUrl;
+        private System.Windows.Forms.Label lbGrn;
     }
 }
 
