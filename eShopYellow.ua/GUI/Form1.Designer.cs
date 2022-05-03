@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -49,10 +50,16 @@
             this.butSave = new System.Windows.Forms.Button();
             this.butFind = new System.Windows.Forms.Button();
             this.txtBoxFind = new System.Windows.Forms.TextBox();
+            this.productInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productInfoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -107,11 +114,20 @@
             // 
             // dataGridView
             // 
+            this.dataGridView.AutoGenerateColumns = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.priceDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn});
+            this.dataGridView.DataSource = this.productInfoBindingSource;
             this.dataGridView.Location = new System.Drawing.Point(24, 57);
             this.dataGridView.Name = "dataGridView";
+            this.dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView.Size = new System.Drawing.Size(483, 420);
             this.dataGridView.TabIndex = 0;
+            this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 
             // pBoxImage
             // 
@@ -132,6 +148,7 @@
             // 
             // txtBoxId
             // 
+            this.txtBoxId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productInfoBindingSource, "Id", true));
             this.txtBoxId.Location = new System.Drawing.Point(750, 29);
             this.txtBoxId.Name = "txtBoxId";
             this.txtBoxId.Size = new System.Drawing.Size(100, 20);
@@ -148,6 +165,7 @@
             // 
             // txtBoxName
             // 
+            this.txtBoxName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productInfoBindingSource, "Name", true));
             this.txtBoxName.Location = new System.Drawing.Point(750, 74);
             this.txtBoxName.Multiline = true;
             this.txtBoxName.Name = "txtBoxName";
@@ -165,6 +183,7 @@
             // 
             // txtBoxPrice
             // 
+            this.txtBoxPrice.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productInfoBindingSource, "Price", true));
             this.txtBoxPrice.Location = new System.Drawing.Point(750, 174);
             this.txtBoxPrice.Name = "txtBoxPrice";
             this.txtBoxPrice.Size = new System.Drawing.Size(100, 20);
@@ -181,6 +200,7 @@
             // 
             // txtBoxDes
             // 
+            this.txtBoxDes.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productInfoBindingSource, "Description", true));
             this.txtBoxDes.Location = new System.Drawing.Point(663, 262);
             this.txtBoxDes.Multiline = true;
             this.txtBoxDes.Name = "txtBoxDes";
@@ -195,6 +215,7 @@
             this.butBrouse.TabIndex = 10;
             this.butBrouse.Text = "Brouse";
             this.butBrouse.UseVisualStyleBackColor = true;
+            this.butBrouse.Click += new System.EventHandler(this.butBrouse_Click);
             // 
             // butAdd
             // 
@@ -204,6 +225,7 @@
             this.butAdd.TabIndex = 11;
             this.butAdd.Text = "Add";
             this.butAdd.UseVisualStyleBackColor = true;
+            this.butAdd.Click += new System.EventHandler(this.butAdd_Click);
             // 
             // butEdit
             // 
@@ -213,6 +235,7 @@
             this.butEdit.TabIndex = 12;
             this.butEdit.Text = "Edit";
             this.butEdit.UseVisualStyleBackColor = true;
+            this.butEdit.Click += new System.EventHandler(this.butEdit_Click);
             // 
             // butCancel
             // 
@@ -222,6 +245,7 @@
             this.butCancel.TabIndex = 13;
             this.butCancel.Text = "Cancel";
             this.butCancel.UseVisualStyleBackColor = true;
+            this.butCancel.Click += new System.EventHandler(this.butCancel_Click);
             // 
             // butDelete
             // 
@@ -231,6 +255,7 @@
             this.butDelete.TabIndex = 14;
             this.butDelete.Text = "Delete";
             this.butDelete.UseVisualStyleBackColor = true;
+            this.butDelete.Click += new System.EventHandler(this.butDelete_Click);
             // 
             // butSave
             // 
@@ -240,6 +265,7 @@
             this.butSave.TabIndex = 15;
             this.butSave.Text = "Save";
             this.butSave.UseVisualStyleBackColor = true;
+            this.butSave.Click += new System.EventHandler(this.butSave_Click);
             // 
             // butFind
             // 
@@ -257,6 +283,35 @@
             this.txtBoxFind.Size = new System.Drawing.Size(381, 20);
             this.txtBoxFind.TabIndex = 17;
             // 
+            // productInfoBindingSource
+            // 
+            this.productInfoBindingSource.DataSource = typeof(eShopYellow.ua.ProductInfo);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,12 +321,14 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "CRUD";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productInfoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -299,6 +356,11 @@
         private System.Windows.Forms.Label lbId;
         private System.Windows.Forms.PictureBox pBoxImage;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.BindingSource productInfoBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
     }
 }
 
