@@ -13,5 +13,6 @@ namespace eShopYellow.ua.DataModel
           : base("name=Model1") { }
 
         public virtual DbSet<ProductInfo> ProductInfoList { get; set; }
+        public IEnumerable<object> Products { get; internal set; }
     }
 }

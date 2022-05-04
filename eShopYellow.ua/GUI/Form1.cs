@@ -1,12 +1,9 @@
 ﻿using eShopYellow.ua.DataModel;
+using eShopYellow.ua.GUI.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace eShopYellow.ua
@@ -41,6 +38,24 @@ namespace eShopYellow.ua
             if (obj != null)
                 pBoxImage.Image = Image.FromFile(obj.ImageUrl);
         }
+
+        //private void ShowCard()
+        //{
+
+        //    //int x = 10, y = 10;
+        //    Model1 db = new Model1();
+        //    foreach (var item in db.ProductInfoList)
+        //    {
+        //        this.Controls.Add(new ProductControl(item.Name, item.Price, item.ImageUrl));
+        //        //{ Location = new Point(x, y) });
+        //        //x += 215;
+        //        //if (x/215 >= 3)
+        //        //{
+        //        //    y += 265;
+        //        //    x = 10;
+        //        //}
+        //    }
+        //}
 
         private void butAdd_Click(object sender, EventArgs e)
         {
@@ -113,8 +128,6 @@ namespace eShopYellow.ua
 
         private void txtBoxFind_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
                 using (Model1 db = new Model1())
                 {
                     ProductInfo obj = productInfoBindingSource.Current as ProductInfo;
@@ -122,17 +135,15 @@ namespace eShopYellow.ua
                     {
                         dataGridView.DataSource = db.ProductInfoList.Where(x => x.Name.Contains(txtBoxFind.Text) || x.Price.Contains(txtBoxFind.Text) || x.Description.Contains(txtBoxFind.Text)).ToList();
                     
-
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
+            
         }
 
-       
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.Show();
+        }
     }
 }
