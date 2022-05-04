@@ -109,5 +109,30 @@ namespace eShopYellow.ua
                 }
             }
         }
+
+
+        private void txtBoxFind_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                using (Model1 db = new Model1())
+                {
+                    ProductInfo obj = productInfoBindingSource.Current as ProductInfo;
+                    if (obj != null)
+                    {
+                        dataGridView.DataSource = db.ProductInfoList.Where(x => x.Name.Contains(txtBoxFind.Text) || x.Price.Contains(txtBoxFind.Text) || x.Description.Contains(txtBoxFind.Text)).ToList();
+                    
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+       
     }
 }
