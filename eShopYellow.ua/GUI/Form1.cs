@@ -39,24 +39,6 @@ namespace eShopYellow.ua
                 pBoxImage.Image = Image.FromFile(obj.ImageUrl);
         }
 
-        //private void ShowCard()
-        //{
-
-        //    //int x = 10, y = 10;
-        //    Model1 db = new Model1();
-        //    foreach (var item in db.ProductInfoList)
-        //    {
-        //        this.Controls.Add(new ProductControl(item.Name, item.Price, item.ImageUrl));
-        //        //{ Location = new Point(x, y) });
-        //        //x += 215;
-        //        //if (x/215 >= 3)
-        //        //{
-        //        //    y += 265;
-        //        //    x = 10;
-        //        //}
-        //    }
-        //}
-
         private void butAdd_Click(object sender, EventArgs e)
         {
             pBoxImage.Image = null;
