@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.lbSearch = new System.Windows.Forms.Label();
             this.lbGrn = new System.Windows.Forms.Label();
             this.txtBoxFind = new System.Windows.Forms.TextBox();
@@ -51,7 +52,6 @@
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.ImageUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.button1 = new System.Windows.Forms.Button();
             this.productInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,6 +93,18 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "CRUD";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.button1.Location = new System.Drawing.Point(167, 476);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(197, 23);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Product Card";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // lbSearch
             // 
@@ -298,16 +310,6 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(944, 561);
             this.tabControl.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(167, 476);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(197, 23);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Product Card";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // productInfoBindingSource
             // 
